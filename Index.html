@@ -187,7 +187,7 @@ footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font
       <div class="specks"><span style="right:0;bottom:30px;transform:rotate(-30deg)"></span><span style="right:26px;bottom:6px;transform:rotate(20deg);width:12px"></span><span style="right:-24px;bottom:56px;transform:rotate(-65deg);width:14px"></span><span style="right:48px;bottom:44px;transform:rotate(-10deg);width:10px"></span></div>
       <div class="poster">
         <span class="tag ia" id="tag">Mejorada con IA</span>
-        <img id="posterImg" src="Fotomontaje-mejora-IA.jpg" alt="Fotomontaje publicitario Starbucks: vaso gigante sobre Paseo de la Reforma">
+        <img id="posterImg" src="media/Fotomontaje-mejora-IA.jpg" alt="Fotomontaje publicitario Starbucks: vaso gigante sobre Paseo de la Reforma">
       </div>
       <div class="switch" id="switch" role="group" aria-label="Elegir versión">
         <button data-v="mine">Mi versión</button>
@@ -212,17 +212,17 @@ footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font
     </div>
     <div class="cards">
       <a class="card" href="#hero" onclick="setVersion('mine');window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <div class="cw"><div class="c bg-y"><img src="Fotomontaje-Starbucks.jpg" alt="Mi versión"></div><span class="chip">Mía</span></div>
+        <div class="cw"><div class="c bg-y"><img src="media/Fotomontaje-Starbucks.jpg" alt="Mi versión"></div><span class="chip">Mía</span></div>
         <h3>Mi versión</h3><small>Fotomontaje hecho por mí</small>
       </a>
       <a class="card" href="#hero" onclick="setVersion('ia');window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <div class="cw"><div class="c bg-g"><img src="Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA"></div><span class="chip">IA</span></div>
+        <div class="cw"><div class="c bg-g"><img src="media/Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA"></div><span class="chip">IA</span></div>
         <h3>Mejorada con IA</h3><small>Refinamiento sobre mi versión</small>
       </a>
       <a class="card" href="#comparador">
         <div class="cw"><div class="c bg-r split">
-          <img src="Fotomontaje-Starbucks.jpg" alt="">
-          <img src="Fotomontaje-mejora-IA.jpg" alt="" style="clip-path:inset(0 0 0 50%)">
+          <img src="media/Fotomontaje-Starbucks.jpg" alt="">
+          <img src="media/Fotomontaje-mejora-IA.jpg" alt="" style="clip-path:inset(0 0 0 50%)">
         </div><span class="chip">A | B</span></div>
         <h3>Comparador</h3><small>Desliza y compara</small>
       </a>
@@ -230,8 +230,8 @@ footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font
 
     <div class="compare" id="comparador">
       <div class="slider" id="slider">
-        <img src="Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA">
-        <img class="mine" id="mineImg" src="Fotomontaje-Starbucks.jpg" alt="Mi versión">
+        <img src="media/Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA">
+        <img class="mine" id="mineImg" src="media/Fotomontaje-Starbucks.jpg" alt="Mi versión">
         <span class="lab l">Mi versión</span><span class="lab r">Mejorada con IA</span>
         <div class="line" id="line"></div><div class="grip">⇆</div>
         <input type="range" min="0" max="100" value="50" id="range" aria-label="Comparar versiones">
@@ -286,9 +286,9 @@ footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font
       <div class="spec wide"><div class="n">4</div><h3>Imágenes originales usadas en el fotomontaje</h3>
         <p>Material de origen con el que se construyó la imagen imposible.</p>
         <div class="orig">
-          <figure><img src="original-avenida.jpg" alt="" onerror="this.remove()"><figcaption>Foto base: Paseo de la Reforma<br><small>(original-avenida.jpg)</small></figcaption></figure>
-          <figure><img src="original-vaso.jpg" alt="" onerror="this.remove()"><figcaption>Vaso de Starbucks<br><small>(original-vaso.jpg)</small></figcaption></figure>
-          <figure><img src="original-salpicaduras.jpg" alt="" onerror="this.remove()"><figcaption>Salpicaduras y hielo<br><small>(original-salpicaduras.jpg)</small></figcaption></figure>
+          <figure><img src="media/original-avenida.jpg" alt="" onerror="this.remove()"><figcaption>Foto base: Paseo de la Reforma<br><small>(original-avenida.jpg)</small></figcaption></figure>
+          <figure><img src="media/original-vaso.jpg" alt="" onerror="this.remove()"><figcaption>Vaso de Starbucks<br><small>(original-vaso.jpg)</small></figcaption></figure>
+          <figure><img src="media/original-salpicaduras.jpg" alt="" onerror="this.remove()"><figcaption>Salpicaduras y hielo<br><small>(original-salpicaduras.jpg)</small></figcaption></figure>
         </div>
       </div>
 
@@ -315,7 +315,7 @@ footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font
 <footer>Proyecto de Fotomontaje y Retórica Visual · Starbucks · «El café que mueve tus días»</footer>
 
 <script>
-const IMG={mine:'Fotomontaje-Starbucks.jpg',ia:'Fotomontaje-mejora-IA.jpg'};
+const IMG={mine:'media/Fotomontaje-Starbucks.jpg',ia:'media/Fotomontaje-mejora-IA.jpg'};
 const LAB={mine:'Mi versión',ia:'Mejorada con IA'};
 function setVersion(v){
   const img=document.getElementById('posterImg'),tag=document.getElementById('tag');
