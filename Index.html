@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starbucks · El café que mueve tus días | Fotomontaje y Retórica Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#efe6d9; --ink:#14141a; --muted:#6b6862; --orange:#f08a5d; --navy:#20222f;
+  --green:#00704a; --green-dark:#1e3932; --yellow:#e9bd5f; --rose:#c9566a; --leaf:#2f8a5a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit','Helvetica Neue',Arial,sans-serif; color:var(--ink); background-color:var(--cream);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .3  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem 0}
+.brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.02em;font-size:.95rem}
+.logo{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:1.6rem;overflow:hidden}
+.logo img{width:100%;height:100%}
+.nav-links{display:flex;gap:2.2rem;list-style:none;font-weight:500;font-size:.9rem}
+.nav-links a{color:var(--ink);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.search{display:flex;align-items:center;gap:.6rem;background:#fff;border-radius:50px;padding:.8rem 1.4rem;min-width:230px;box-shadow:0 8px 24px rgba(60,40,20,.08);font-size:.85rem;color:#5b6a8a;text-decoration:none}
+.bag{position:relative;width:26px;height:26px}
+.bag::after{content:"";position:absolute;top:-3px;right:-4px;width:8px;height:8px;border-radius:50%;background:var(--orange)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.05fr 1.15fr .8fr;gap:1rem;align-items:center;padding:2.5rem 0 4rem}
+.hero h1{font-size:clamp(2.8rem,5vw,4.3rem);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero p.lead{color:var(--muted);line-height:1.7;font-size:1rem;max-width:420px;margin-bottom:1.5rem}
+.notice{display:flex;gap:.8rem;align-items:flex-start;background:#fff;border-radius:18px;padding:1rem 1.2rem;max-width:430px;box-shadow:0 8px 24px rgba(60,40,20,.07);font-size:.86rem;line-height:1.55;color:var(--muted);margin-bottom:2rem}
+.notice b{color:var(--ink)}
+.notice .dot{flex:none;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.slogan{font-size:1.6rem;font-weight:700;margin-bottom:1.5rem}
+.btn{display:inline-flex;align-items:center;gap:1rem;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;padding:.7rem .8rem .7rem 2rem;border-radius:50px;box-shadow:0 12px 28px rgba(32,34,47,.3);transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn i{width:32px;height:32px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-style:normal}
+
+.stage{position:relative;display:grid;place-items:center;min-height:620px}
+.circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;max-width:100%;aspect-ratio:1;border-radius:50%;background:var(--orange);overflow:hidden}
+.circle::before,.circle::after{content:"";position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.14)}
+.circle::before{inset:12%}.circle::after{inset:28%}
+.poster{position:relative;z-index:2;width:290px;border-radius:18px;overflow:hidden;border:5px solid #fff;background:#fff;box-shadow:0 30px 60px rgba(60,30,10,.3)}
+.poster img{width:100%;transition:opacity .35s}
+.tag{position:absolute;top:12px;left:12px;z-index:3;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;padding:.4rem .9rem;border-radius:30px;transition:background .3s}
+.tag.ia{background:var(--green)}
+.switch{position:absolute;z-index:4;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:.3rem;background:#fff;padding:.4rem;border-radius:50px;box-shadow:0 14px 34px rgba(60,30,10,.18);white-space:nowrap}
+.switch button{font:inherit;font-weight:600;font-size:.82rem;border:0;background:transparent;color:var(--muted);padding:.65rem 1.2rem;border-radius:50px;cursor:pointer;transition:all .25s}
+.switch button.on{background:var(--navy);color:#fff}
+.switch button.on.ia{background:var(--green)}
+.specks{position:absolute;right:9%;bottom:12%;z-index:1}
+.specks span{position:absolute;width:22px;height:5px;border-radius:5px;background:var(--navy)}
+
+.feats{display:flex;flex-direction:column;gap:1.8rem}
+.feat{display:flex;gap:1rem;align-items:center}
+.feat .ic{flex:none;width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(60,40,20,.08)}
+.feat svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat h4{font-size:1rem;font-weight:700}.feat p{font-size:.8rem;color:var(--muted);line-height:1.4;margin-top:.1rem}
+
+/* PANEL OSCURO (estilo referente) */
+.dark{background:var(--navy);color:#fff;border-radius:48px 48px 0 0;margin-top:2rem;padding:0 0 4rem;position:relative}
+.dark .top{padding-top:4.5rem;text-align:center}
+.dark h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-.01em}
+.dark .sub{color:#a9acc0;max-width:620px;margin:.8rem auto 0;line-height:1.6}
+.cards{display:flex;justify-content:center;gap:4.5rem;flex-wrap:wrap;margin-top:-0px;padding-top:3rem}
+.card{text-align:center;width:230px;cursor:pointer;color:#fff;text-decoration:none}
+.card .c{position:relative;width:190px;height:190px;border-radius:50%;margin:0 auto 1.3rem;overflow:hidden;transition:transform .3s}
+.card:hover .c{transform:translateY(-8px) scale(1.03)}
+.card .c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(2.1);transform-origin:50% 52%}
+.card .c.split .half{position:absolute;top:0;bottom:0;overflow:hidden}
+.card .c.split .half.l{left:0;width:50%}.card .c.split .half.r{right:0;width:50%}
+.card .c.split .half img{width:190px;left:0;right:auto}
+.card .c.split .half.r img{left:-95px}
+.card .chip{position:absolute;right:6px;bottom:18px;background:#fff;color:var(--ink);font-size:.75rem;font-weight:700;padding:.45rem .8rem;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:2}
+.card .cw{position:relative;width:190px;margin:0 auto}
+.card h3{font-size:1.05rem;font-weight:600}
+.card small{display:block;color:#a9acc0;margin-top:.4rem;font-size:.85rem}
+.bg-y{background:var(--yellow)}.bg-g{background:var(--leaf)}.bg-r{background:var(--rose)}
+
+/* COMPARADOR + AUTORIA */
+.compare{display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center;padding-top:5rem}
+.slider{position:relative;width:100%;aspect-ratio:960/1223;border-radius:22px;overflow:hidden;border:5px solid #fff;box-shadow:0 30px 60px rgba(0,0,0,.35);user-select:none;background:#fff}
+.slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slider .mine{clip-path:inset(0 50% 0 0)}
+.slider .line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,.4);pointer-events:none}
+.slider .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.35);pointer-events:none}
+.slider input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.slider .lab{position:absolute;top:12px;font-size:.72rem;font-weight:700;color:#fff;padding:.4rem .9rem;border-radius:30px;pointer-events:none}
+.slider .lab.l{left:12px;background:var(--navy)}.slider .lab.r{right:12px;background:var(--green)}
+.who{display:grid;gap:1.4rem}
+.who h2{font-size:clamp(1.7rem,2.6vw,2.2rem);font-weight:800;margin-bottom:.2rem}
+.box{border-radius:22px;padding:1.6rem 1.8rem}
+.box.mine{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.box.ia{background:rgba(0,112,74,.18);border:1px solid rgba(0,160,100,.4)}
+.box h3{display:flex;align-items:center;gap:.7rem;font-size:1.1rem;margin-bottom:.8rem}
+.box h3 span{font-size:.72rem;font-weight:700;padding:.3rem .8rem;border-radius:30px;background:var(--navy);border:1px solid rgba(255,255,255,.3)}
+.box.ia h3 span{background:var(--green);border-color:transparent}
+.box ul{list-style:none;color:#c5c8d8;font-size:.92rem;line-height:1.55}
+.box li{position:relative;padding-left:1.2rem;margin-bottom:.45rem}
+.box li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+
+/* ESQUEMA DE ENTREGA */
+.light{padding:5rem 0 4rem}
+.light h2.t{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-align:center;letter-spacing:-.01em}
+.light .sub{text-align:center;color:var(--muted);margin:.7rem auto 3rem;max-width:620px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem}
+.spec{background:#fff;border-radius:26px;padding:2rem;box-shadow:0 12px 30px rgba(60,40,20,.07)}
+.spec .n{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;color:#fff;font-weight:700;margin-bottom:1rem;background:var(--orange)}
+.spec:nth-child(3n+2) .n{background:var(--green)}.spec:nth-child(3n) .n{background:var(--rose)}
+.spec h3{font-size:1.2rem;margin-bottom:.8rem}
+.spec p,.spec li{color:var(--muted);font-size:.92rem;line-height:1.65}
+.spec ul{list-style:none}.spec li{margin-bottom:.5rem;padding-left:1.1rem;position:relative}
+.spec li::before{content:"▪";position:absolute;left:0;color:var(--green)}
+.spec b{color:var(--ink)}
+.sw{display:flex;gap:.6rem;margin:.9rem 0 .3rem}
+.sw i{width:38px;height:38px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(0,0,0,.06)}
+.orig{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1rem}
+.orig figure{aspect-ratio:1;border-radius:16px;background:var(--cream);border:2px dashed #cdbfae;display:grid;place-items:center;text-align:center;overflow:hidden;position:relative}
+.orig figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.orig figcaption{font-size:.68rem;color:var(--muted);padding:.4rem;line-height:1.3}
+.wide{grid-column:1/-1}
+
+footer{background:#e5d9c7;text-align:center;padding:2rem;color:var(--muted);font-size:.88rem}
+
+@media (max-width:1100px){
+  .hero{grid-template-columns:1fr;text-align:left}
+  .feats{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .compare{grid-template-columns:1fr}
+  .slider{max-width:380px;margin:0 auto}
+  .nav-links,.search{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 1.1rem}
+  .stage{min-height:560px}.circle{width:380px}.poster{width:280px}
+  .orig{grid-template-columns:1fr}
+  .cards{gap:2.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="brand">
+      <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg" alt="Starbucks" onerror="this.remove();this.parentNode.textContent='★'"></div>
+      STARBUCKS
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Concepto</a></li>
+      <li><a href="#versiones">Versiones</a></li>
+      <li><a href="#comparador">Autoría</a></li>
+      <li><a href="#entrega">Retórica</a></li>
+      <li><a href="#estetica">Estética</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="search" href="#comparador">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14141a" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        Comparar versiones
+      </a>
+      <svg class="bag" viewBox="0 0 24 24" fill="none" stroke="#14141a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>El café que<br>mueve tus días</h1>
+      <p class="lead">Pieza publicitaria de fotomontaje con retórica visual: un vaso monumental de Starbucks se alza sobre el Paseo de la Reforma y su café desborda la avenida. Una imagen imposible que parece real.</p>
+      <div class="notice">
+        <div class="dot">i</div>
+        <div><b>Aclaración de autoría.</b> Este proyecto tiene dos versiones: <b>mi versión</b>, realizada por mí en Photoshop, y la <b>versión mejorada con IA</b>, que parte de mi trabajo y lo refina. Usa el selector para alternar entre ambas.</div>
+      </div>
+      <a class="btn" href="#comparador">Comparar versiones <i>→</i></a>
+    </div>
+
+    <div class="stage">
+      <div class="circle"></div>
+      <div class="specks"><span style="right:0;bottom:30px;transform:rotate(-30deg)"></span><span style="right:26px;bottom:6px;transform:rotate(20deg);width:12px"></span><span style="right:-24px;bottom:56px;transform:rotate(-65deg);width:14px"></span><span style="right:48px;bottom:44px;transform:rotate(-10deg);width:10px"></span></div>
+      <div class="poster">
+        <span class="tag ia" id="tag">Mejorada con IA</span>
+        <img id="posterImg" src="Fotomontaje-mejora-IA.jpg" alt="Fotomontaje publicitario Starbucks: vaso gigante sobre Paseo de la Reforma">
+      </div>
+      <div class="switch" id="switch" role="group" aria-label="Elegir versión">
+        <button data-v="mine">Mi versión</button>
+        <button data-v="ia" class="on ia">Mejorada con IA</button>
+      </div>
+    </div>
+
+    <div class="feats">
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 4h12l-1.5 16h-9L6 4z"/><path d="M6.5 9h11"/></svg></div><div><h4>Metáfora visual</h4><p>El café como motor<br>de la ciudad</p></div></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="6" height="11"/><rect x="14" y="4" width="6" height="16"/><path d="M2 20h20"/></svg></div><div><h4>Escala imposible</h4><p>Hipérbole: un vaso<br>más alto que los edificios</p></div></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg></div><div><h4>Glow y luz</h4><p>Efectos de Photoshop<br>sobre los líquidos</p></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- PANEL OSCURO -->
+<section class="dark" id="versiones">
+  <div class="wrap">
+    <div class="top">
+      <h2>Dos versiones, un mismo concepto</h2>
+      <p class="sub">Cada versión está identificada para que quede claro qué es trabajo propio y qué fue mejorado con inteligencia artificial.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="#hero" onclick="setVersion('mine');window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <div class="cw"><div class="c bg-y"><img src="Fotomontaje-Starbucks.jpg" alt="Mi versión"></div><span class="chip">Mía</span></div>
+        <h3>Mi versión</h3><small>Fotomontaje hecho por mí</small>
+      </a>
+      <a class="card" href="#hero" onclick="setVersion('ia');window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <div class="cw"><div class="c bg-g"><img src="Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA"></div><span class="chip">IA</span></div>
+        <h3>Mejorada con IA</h3><small>Refinamiento sobre mi versión</small>
+      </a>
+      <a class="card" href="#comparador">
+        <div class="cw"><div class="c bg-r split">
+          <img src="Fotomontaje-Starbucks.jpg" alt="">
+          <img src="Fotomontaje-mejora-IA.jpg" alt="" style="clip-path:inset(0 0 0 50%)">
+        </div><span class="chip">A | B</span></div>
+        <h3>Comparador</h3><small>Desliza y compara</small>
+      </a>
+    </div>
+
+    <div class="compare" id="comparador">
+      <div class="slider" id="slider">
+        <img src="Fotomontaje-mejora-IA.jpg" alt="Versión mejorada con IA">
+        <img class="mine" id="mineImg" src="Fotomontaje-Starbucks.jpg" alt="Mi versión">
+        <span class="lab l">Mi versión</span><span class="lab r">Mejorada con IA</span>
+        <div class="line" id="line"></div><div class="grip">⇆</div>
+        <input type="range" min="0" max="100" value="50" id="range" aria-label="Comparar versiones">
+      </div>
+      <div class="who">
+        <div>
+          <h2>¿Qué es mío y qué es de la IA?</h2>
+          <p class="sub" style="text-align:left;margin:0;color:#a9acc0">Desliza la barra para ver el antes (izquierda, mi versión) y el después (derecha, mejorada con IA).</p>
+        </div>
+        <div class="box mine">
+          <h3>Mi versión <span>HECHA POR MÍ</span></h3>
+          <ul>
+            <li>Fotomontaje en Photoshop: avenida con edificios, vaso de Starbucks, salpicaduras y cubos de hielo.</li>
+            <li>Concepto creativo, figura retórica y slogan «El café que mueve tus días».</li>
+            <li>Composición, jerarquía del logotipo y texto sobre el cielo.</li>
+          </ul>
+        </div>
+        <div class="box ia">
+          <h3>Mejora con IA <span>ASISTIDA POR IA</span></h3>
+          <ul>
+            <li>Partió de mi versión como base; el concepto, el slogan y la composición general se mantienen.</li>
+            <li>Vaso más grande y presente, con una corona de salpicadura y hielo más dramática en la boca.</li>
+            <li>Ola de café más densa alrededor del monumento, con tonos caramelo y mayor contraste.</li>
+            <li>Mejor integración de bordes, luz y color entre el vaso y la avenida.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESQUEMA DE ENTREGA -->
+<section class="light" id="entrega">
+  <div class="wrap">
+    <h2 class="t">Esquema de entrega</h2>
+    <p class="sub">Cómo cumple la pieza con cada punto solicitado en la tarea.</p>
+    <div class="grid">
+      <div class="spec"><div class="n">1</div><h3>Producto</h3>
+        <p>Starbucks, bebida fría de café con leche y hielo (iced coffee). Se promociona la marca como parte de la rutina diaria.</p></div>
+
+      <div class="spec"><div class="n">2</div><h3>Concepto creativo y retórica visual</h3>
+        <ul>
+          <li><b>Figura principal: metáfora visual.</b> El vaso ocupa el lugar de un monumento de la avenida: el café es el ícono y el motor de la ciudad.</li>
+          <li><b>Apoyo: hipérbole de escala.</b> El vaso es más alto que los edificios, lo que lo vuelve una imagen imposible.</li>
+          <li>El café derramado ocupa el lugar del tráfico: la ciudad fluye gracias al café.</li>
+        </ul></div>
+
+      <div class="spec"><div class="n">3</div><h3>Mensaje</h3>
+        <p style="font-size:1.15rem;color:var(--ink);font-weight:700;margin-bottom:.5rem">«El café que mueve tus días»</p>
+        <p>«Mueve» tiene doble sentido: el café pone en movimiento a la ciudad (la avenida) y a las personas (tu día). El eslogan refuerza lo que muestra la imagen.</p></div>
+
+      <div class="spec wide"><div class="n">4</div><h3>Imágenes originales usadas en el fotomontaje</h3>
+        <p>Material de origen con el que se construyó la imagen imposible.</p>
+        <div class="orig">
+          <figure><img src="original-avenida.jpg" alt="" onerror="this.remove()"><figcaption>Foto base: Paseo de la Reforma<br><small>(original-avenida.jpg)</small></figcaption></figure>
+          <figure><img src="original-vaso.jpg" alt="" onerror="this.remove()"><figcaption>Vaso de Starbucks<br><small>(original-vaso.jpg)</small></figcaption></figure>
+          <figure><img src="original-salpicaduras.jpg" alt="" onerror="this.remove()"><figcaption>Salpicaduras y hielo<br><small>(original-salpicaduras.jpg)</small></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="spec" id="estetica"><div class="n">5</div><h3>Tendencia gráfica</h3>
+        <ul>
+          <li><b>Estilo:</b> surrealismo publicitario contemporáneo con minimalismo orgánico.</li>
+          <li><b>Composición:</b> simetría central, avenida en fuga hacia el vaso, logotipo y slogan en el cielo como zona de respiro.</li>
+          <li><b>Tipografía:</b> slogan en trazo manual itálico verde con subrayado, junto al logotipo; en esta web, Outfit.</li>
+          <li><b>Formas y texturas:</b> salpicaduras líquidas, hielo translúcido y círculos orgánicos.</li>
+        </ul>
+        <div class="sw"><i style="background:#00704a"></i><i style="background:#8a5a3a"></i><i style="background:#d9a066"></i><i style="background:#8fc3e6"></i><i style="background:#f08a5d"></i></div>
+      </div>
+
+      <div class="spec"><div class="n">6</div><h3>Efectos de Photoshop</h3>
+        <ul>
+          <li><b>Tutorial Cyber Y2K:</b> brillos y destellos (glow) sobre los líquidos y el hielo.</li>
+          <li><b>Tutorial de Surrealismo:</b> perspectiva, escala hiperbólica y deformación del vaso en la avenida.</li>
+          <li>Capas de ajuste y máscaras de fusión para armonizar color y bordes.</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<footer>Proyecto de Fotomontaje y Retórica Visual · Starbucks · «El café que mueve tus días»</footer>
+
+<script>
+const IMG={mine:'Fotomontaje-Starbucks.jpg',ia:'Fotomontaje-mejora-IA.jpg'};
+const LAB={mine:'Mi versión',ia:'Mejorada con IA'};
+function setVersion(v){
+  const img=document.getElementById('posterImg'),tag=document.getElementById('tag');
+  img.style.opacity=0;
+  setTimeout(()=>{img.src=IMG[v];img.style.opacity=1},180);
+  tag.textContent=LAB[v];tag.classList.toggle('ia',v==='ia');
+  document.querySelectorAll('#switch button').forEach(b=>{
+    const on=b.dataset.v===v;
+    b.classList.toggle('on',on);b.classList.toggle('ia',on&&v==='ia');
+  });
+}
+document.querySelectorAll('#switch button').forEach(b=>b.addEventListener('click',()=>setVersion(b.dataset.v)));
+
+const range=document.getElementById('range'),mine=document.getElementById('mineImg'),line=document.getElementById('line'),grip=document.querySelector('.grip');
+function upd(){const v=range.value;mine.style.clipPath='inset(0 '+(100-v)+'% 0 0)';line.style.left=v+'%';grip.style.left=v+'%'}
+range.addEventListener('input',upd);upd();
+</script>
+</body>
+</html>
